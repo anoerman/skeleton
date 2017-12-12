@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.11 (64 bit)
 MySQL - 5.7.11 : Database - skeleton_database
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -16,11 +17,11 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`skeleton_database` /*!40100 DEFAULT CHA
 
 USE `skeleton_database`;
 
-/*Table structure for table `arc_sessions` */
+/*Table structure for table `skel_sessions` */
 
-DROP TABLE IF EXISTS `arc_sessions`;
+DROP TABLE IF EXISTS `skel_sessions`;
 
-CREATE TABLE `arc_sessions` (
+CREATE TABLE `skel_sessions` (
   `id` varchar(40) NOT NULL,
   `ip_address` varchar(45) NOT NULL,
   `timestamp` int(10) unsigned NOT NULL DEFAULT '0',
@@ -28,7 +29,7 @@ CREATE TABLE `arc_sessions` (
   KEY `ci_sessions_timestamp` (`timestamp`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-/*Data for the table `arc_sessions` */
+/*Data for the table `skel_sessions` */
 
 /*Table structure for table `groups` */
 
@@ -132,7 +133,7 @@ DELIMITER $$
 /*!50003 DROP TRIGGER*//*!50032 IF EXISTS */ /*!50003 `after_users_insert` */$$
 
 /*!50003 CREATE */ /*!50017 DEFINER = 'root'@'localhost' */ /*!50003 TRIGGER `after_users_insert` AFTER INSERT ON `users` FOR EACH ROW BEGIN
-	INSERT INTO `arc_database`.users_photo VALUES( NEW.username, "no_picture.png", "no_picture.png", now());
+	INSERT INTO `skel_database`.users_photo VALUES( NEW.username, "no_picture.png", "no_picture.png", now());
     END */$$
 
 
